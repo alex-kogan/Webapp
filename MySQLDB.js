@@ -14,17 +14,13 @@ var MySQLDB = function () {
 	{
 		connection.connect(function(err){
 		if(!err) {
-		    console.log("Database is connected ... nn");    
+		    console.log("Database is connected ... \n\n");    
 		} else {
-		    console.log("Error connecting database ... nn");    
+		    console.log("Error connecting database ... \n\n");    
 		}
 		});
 	};
 	
-	self.alexlog = function ()
-	{
-		console.log('alex');
-	};
 
 	self.query = function (queryText,callback)
 	{
