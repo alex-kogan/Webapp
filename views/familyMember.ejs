@@ -1,22 +1,33 @@
-<h1 id="page-title"><%= title %></h1>
-
-<table id='Table' class="table">
-	<% for(var i=0; i<rows.length; i++) { %>
-		<tr>
-			<td>Name</td>
-			<td><%= rows[i].Name %></td>
-		</tr>
-		<tr>
-			<td>Location</td>
-			<td><%= rows[i].Location %></td>
-		</tr>
-		<tr>
-			<td>Pic</td>
-			<td>
-				<div class="img-container">
-					<img src='<%= rows[i].Pic %>' class="img-circle"></img>
-				</div>
-			</td>
-		</tr>		
-	<% } %>
-</table>
+<!DOCTYPE html>
+<html>
+	<head>
+	   <% include templates/head.ejs%>
+	   <script src="/javascripts/appfrontend.js"></script>
+	</head>
+	<body>
+		<h1 id="page-title"><%= title %></h1>
+		<table id='Table' class="table">
+			<% for(var i=0; i<rows.length; i++) { %>
+				<tr>
+					<td>Name</td>
+					<td><%= rows[i].Name %></td>
+				</tr>
+				<tr>
+					<td>Location</td>
+					<td><%= rows[i].Location %></td>
+				</tr>
+				<tr>
+					<td>Pic</td>
+					<td>
+						<div class="img-container">
+							<img src='<%= rows[i].Pic %>' class="img-circle"></img>
+						</div>
+					</td>
+				</tr>		
+			<% } %>
+		</table>
+	</body>
+	<footer>
+		<% include templates/footer.ejs%>
+	</footer>
+</html>

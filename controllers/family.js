@@ -17,7 +17,6 @@ function familyMember(req, res, next)
 	var query = "SELECT * FROM events WHERE Name ='" + req.params.name + "'";
 	MySQLDBInstance.query(query, function(rows, fields)
   {
-  	var name = req.params.name;
 		res.render('familyMember', { title: rows[0].Name, 
 							  site_name: 'Backend',
 								rows: rows,

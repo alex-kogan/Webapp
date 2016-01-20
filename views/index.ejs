@@ -1,10 +1,22 @@
-<h1 id="page-title"><%= title %></h1>
+<!DOCTYPE html>
+<html>
+	<head>
+	   <% include templates/head.ejs%>
+	   <script src="/javascripts/appfrontend.js"></script>
+	</head>
+	<body>
+		<h1 id="page-title"><%= title %></h1>
 
-<h2>These are our <a href='/family'>familiy</a> members</h2>
-<ul id='fromDB'>
-    <% for(var i=0; i<data.length; i++) { %>
-        <li>
-            <%= data[i].Name %>
-        </li>
-    <% } %>
-</ul>
+		<h2>These are our <a href='/family'>familiy</a> members</h2>
+		<ul id='fromDB'>
+		    <% for(var i=0; i<data.length; i++) { %>
+		        <li>
+		            <%= data[i].Name %>
+		        </li>
+		    <% } %>
+		</ul>
+	</body>
+	<footer>
+		<% include templates/footer.ejs%>
+	</footer>
+</html>		
