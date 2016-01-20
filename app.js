@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // when geting a request for / use the varible index
 app.get('/', indexControllers.index);
 app.get('/family', familyControlles.family);
+app.get('/family/:name', familyControlles.familyMember);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
