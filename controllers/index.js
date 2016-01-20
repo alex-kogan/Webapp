@@ -19,9 +19,7 @@ if(!err) {
 }
 });
 
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
+function index(req, res, next) {
 	connection.query('SELECT * FROM events', function(err, rows, fields) {
 		if (err) throw err;
   		res.render('index', { title: 'Example Page', 
@@ -29,5 +27,8 @@ router.get('/', function(req, res, next) {
 							  data: rows});
   	});
 });
+
+/* GET home page. */
+router.get('/', index);
 
 module.exports = router;
