@@ -7,8 +7,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/* sql part
+ * var MySQLDB = require('./MySQLDB.js');
+ * var MySQLDBInstance = new MySQLDB; 
+ * MySQLDBInstance.connect();
+
+ * MySQLDBInstance.query('SELECT * FROM events',function(rows, fields){
+ * console.log(fields.length);
+ * });
+*/
+
+
 // the variable index points to the file index in the routes folder
-var index = require('./routes/index');
+var index = require('./controllers/index');
 
 // setup section
 var app = express();
