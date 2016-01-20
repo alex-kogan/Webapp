@@ -1,0 +1,26 @@
+<h1 id="page-title"><%= title %></h1>
+
+<ul id='fromDB'>
+    <% for(var i=0; i<data.length; i++) { %>
+        <li>
+            <%= data[i].Name %>
+        </li>
+    <% } %>
+</ul>
+
+<table id='Table' class="table">
+	<tr>
+		<td>Name</td>
+		<td>Location</td>
+		<td>Picture</td>
+	</tr>
+    <% for(var i=0; i<data.length; i++) { %>
+		<tr>
+			<td><%= data[i].Name %></td>
+			<td><%= data[i].Location %></td>
+			<td>
+				<img src='<%= data[i].Pic %>'></img>
+			</td>
+		</tr>
+    <% } %>
+</table>
