@@ -19,15 +19,35 @@
 				<tr>
 					<td>Pic</td>
 					<td>
-						<div class="img-container">
+						<div class="img-container img-btn">
+							<!-- Button trigger modal -->
+							<button type="button" class="hide" data-toggle="modal" data-target="#picModal" id='picButton'>
+							</button>
 							<img src='<%= rows[i].Pic %>' class="img-circle"></img>
 						</div>
 					</td>
 				</tr>		
 			<% } %>
 		</table>
-		<div id='picModal'>
-			<img src='<%= rows[0].Pic %>'></img>
+		<!-- Modal -->
+		<div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><%= rows[0].Name %></h4>
+		      </div>
+		      <div class="modal-body">
+		        <img src='<%= rows[0].Pic %>'></img>
+		      </div>
+		      <div class="modal-footer">
+		        <!-- extra buttons
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		        -->
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</body>
 	<footer>

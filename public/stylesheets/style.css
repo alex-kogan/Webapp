@@ -18,7 +18,7 @@ a {
     height: auto;
 }
 
-#picModal
-{
-	visibility: hidden;
+.modal-body img {
+    width: 100%;
+    height: auto;
 }
