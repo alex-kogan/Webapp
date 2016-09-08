@@ -1,10 +1,31 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#center-pane {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 a {
   color: #00B7FF;
+}
+
+header {
+  background-color: #636BE3;
+}
+
+.header-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header-link:hover {
+  background-color: #F6AA39;
+}
+
+a .header-link{
+  color: white;
 }
 
 .img-container {

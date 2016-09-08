@@ -4,9 +4,11 @@
 <div class="container-fluid">
   <div class="row">
     <% for(var i=0; i<headerLinks.length; i++) { %>
-		<div class="col-md-1">
-			<a href='<%= headerLinks[i] %>'><%= headerText[i] %></a>
-		</div>
+			<a href='<%= headerLinks[i] %>'>
+				<div class="col-md-1 header-link text-center">
+					<%= headerText[i] %>
+				</div>
+			</a>
 	<% } %>
   </div>
 </div>
