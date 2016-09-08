@@ -20,7 +20,7 @@ var bodyParser = require('body-parser');
 
 // the variable index points to the file index in the routes folder
 var indexControllers = require('./controllers/index');
-var familyControlles = require('./controllers/family');
+//var familyControlles = require('./controllers/family');
 
 // setup section
 var app = express();
@@ -40,8 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // when geting a request for / use the varible index
 app.get('/', indexControllers.index);
-app.get('/family', familyControlles.family);
-app.get('/family/:name', familyControlles.familyMember);
+//app.get('/family', familyControlles.family);
+//app.get('/family/:name', familyControlles.familyMember);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
