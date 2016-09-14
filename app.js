@@ -7,20 +7,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-/* sql part
- * var MySQLDB = require('./MySQLDB.js');
- * var MySQLDBInstance = new MySQLDB; 
- * MySQLDBInstance.connect();
-
- * MySQLDBInstance.query('SELECT * FROM events',function(rows, fields){
- * console.log(fields.length);
- * });
-*/
-
-
-// the variable index points to the file index in the routes folder
+// Define controllers
 var indexControllers = require('./controllers/index');
-//var familyControlles = require('./controllers/family');
+var familyControlles = require('./controllers/family');
 
 // setup section
 var app = express();
@@ -38,10 +27,11 @@ app.use(cookieParser());
 //app.use(ejsLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routing
 // when geting a request for / use the varible index
 app.get('/', indexControllers.index);
-//app.get('/family', familyControlles.family);
-//app.get('/family/:name', familyControlles.familyMember);
+app.get('/family', familyControlles.family);
+app.get('/family/:name', familyControlles.familyMember);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

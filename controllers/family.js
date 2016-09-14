@@ -1,30 +1,31 @@
-var MySQLDB = require('../MySQLDB.js');
-var MySQLDBInstance = new MySQLDB; 
-MySQLDBInstance.connect();
+var MongoDB = require('../MongoDB.js');
+var MongoDBInstance = new MongoDB; 
+var database = MongoDBInstance.connect('family');
 
 function family(req, res, next)
 {
-	MySQLDBInstance.query('SELECT * FROM events', function(rows, fields)
+	MongoDBInstance.find({}, function(documents)
   {
 		res.render('family', { title: 'Family page', 
 							  site_name: 'Backend',
-							  data: rows});
+							  data: documents});
   });
 };
 
 function familyMember(req, res, next)
 {
-	var query = "SELECT * FROM events WHERE Name ='" + req.params.name + "'";
-	MySQLDBInstance.query(query, function(rows, fields)
+	var query = {first_name: req.params.name.split(' ')[0]};
+	//var query = "SELECT * FROM events WHERE Name ='" + req.params.name + "'";
+	MongoDBInstance.find(query, function(documents)
   {
-		res.render('familyMember', { title: rows[0].Name, 
-							  site_name: 'Backend',
-								rows: rows,
-								fields: fields});
+		res.render('familyMember', {
+			title: documents[0].Name, 
+			site_name: 'Backend',
+			data: documents});
   });
 };
 
 module.exports = {
-									'family': family,
-									'familyMember': familyMember
-				 				 };
+						'family': family,
+						'familyMember': familyMember
+	 				 };

@@ -1,13 +1,13 @@
-//var MySQLDB = require('../MySQLDB.js');
-//var MySQLDBInstance = new MySQLDB; 
-//MySQLDBInstance.connect();
+var MongoDB = require('../MongoDB.js');
+var MongoDBInstance = new MongoDB; 
+var database = MongoDBInstance.connect('family');
 
 function index(req, res, next)
 {
-	//MySQLDBInstance.query('SELECT * FROM events', function(rows, fields)
   	res.render('index', {
-  		title: 'Main Page', 
-		site_name: 'Kogans in CH'});
+		title: 'Main Page', 
+		site_name: 'Kogans in CH',
+  	});
 };
 
 /* GET home page. */

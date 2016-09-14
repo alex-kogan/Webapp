@@ -3,25 +3,26 @@
 	<head>
 	   <% include templates/head.ejs%>
 	</head>
+	<header>
+		<% include templates/header.ejs%>
+	</header>	
 	<body>
 		<h1 id="page-title"><%= title %></h1>
 		<table id='Table' class="table">
 			<tr>
 				<td>Name</td>
-				<td>Location</td>
 				<td>Picture</td>
 			</tr>
 			<% for(var i=0; i<data.length; i++) { %>
 				<tr>
 					<td>
-						<a href = 'family/<%= data[i].Name %>' >
-							<%= data[i].Name %>
+						<a href = 'family/<%= data[i].first_name + " " + data[i].last_name %>' >
+							<%= data[i].first_name + " " + data[i].last_name%>
 						</a>
 					</td>
-					<td><%= data[i].Location %></td>
 					<td>
 						<div class="img-container">
-							<img src='<%= data[i].Pic %>' class="img-circle"></img>
+							<img src='<%= data[i].pic %>' class="img-circle"></img>
 						</div>
 					</td>
 				</tr>

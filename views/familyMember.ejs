@@ -2,19 +2,17 @@
 <html>
 	<head>
 	   <% include templates/head.ejs%>
-	   <script src="/javascripts/appfrontend.js"></script>
 	</head>
+	<header>
+		<% include templates/header.ejs%>
+	</header>
 	<body>
 		<h1 id="page-title"><%= title %></h1>
 		<table id='Table' class="table">
-			<% for(var i=0; i<rows.length; i++) { %>
+			<% for(var i=0; i<data.length; i++) { %>
 				<tr>
 					<td>Name</td>
-					<td><%= rows[i].Name %></td>
-				</tr>
-				<tr>
-					<td>Location</td>
-					<td><%= rows[i].Location %></td>
+					<td><%= data[i].first_name + ' ' + data[i].last_name %></td>
 				</tr>
 				<tr>
 					<td>Pic</td>
@@ -23,7 +21,7 @@
 							<!-- Button trigger modal -->
 							<button type="button" class="hide" data-toggle="modal" data-target="#picModal" id='picButton'>
 							</button>
-							<img src='<%= rows[i].Pic %>' class="img-circle"></img>
+							<img src='<%= data[i].pic %>' class="img-circle"></img>
 						</div>
 					</td>
 				</tr>		
@@ -35,10 +33,10 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel"><%= rows[0].Name %></h4>
+		        <h4 class="modal-title" id="myModalLabel"><%= data[0].first_name + " " + data[0].last_name %></h4>
 		      </div>
 		      <div class="modal-body">
-		        <img src='<%= rows[0].Pic %>'></img>
+		        <img src='<%= data[0].pic %>'></img>
 		      </div>
 		      <div class="modal-footer">
 		        <!-- extra buttons
