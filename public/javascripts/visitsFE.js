@@ -1,4 +1,18 @@
 // Front end js
+
+// because the API is called in the footer the body of the document is already done when this function is called
+var israelHolidays = function(data)
+{
+	for (var i=0; i<data.length; i++)
+	{
+		var dateString = data[i].date.day + '-' + data[i].date.month + '-' + data[i].date.year;
+		var holidayDiv = document.createElement('div');
+		var text = document.createTextNode(data[i].localName);
+		holidayDiv.appendChild(text);
+		$('div#display-month div#' + dateString).append(holidayDiv);
+		$('div#display-month div#' + dateString + ' div').addClass('israli-holiday');
+	}
+}
 $(document).ready(function()
 {
 	var date = $('div#display-month div.current').first().attr('id');
@@ -27,9 +41,5 @@ $(document).ready(function()
 		var selectedMonth = $('#visit-month option:selected').attr("value");
 		var selectedYear = $('#visit-year option:selected').text();
 		window.location = "/visit/"+selectedMonth+'-'+selectedYear;
-	});
-	$.getJSON( "http://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForMonth&month=1&year=2013&country=ger&region=Baden-W%C3%BCrttemberg", function( data )
-	{
-		alert(data);
 	});
 });

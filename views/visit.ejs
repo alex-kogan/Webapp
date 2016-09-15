@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	   <% include templates/head.ejs%>
-	   <script src="/javascripts/visitsFE.js"></script>
+		<% include templates/head.ejs%>
+	   	<script src="/javascripts/visitsFE.js"></script>
 	</head>
 	<header>
 		<% include templates/header.ejs%>
@@ -45,5 +45,8 @@
 	</body>
 	<footer>
 		<% include templates/footer.ejs%>
+		<script type="application/javascript"
+         	src="http://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForMonth&month=<%= month %>&year=<%= year %>&country=isr&jsonp=israelHolidays">
+ 		</script>
 	</footer>
 </html>		

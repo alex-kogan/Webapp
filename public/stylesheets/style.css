@@ -56,3 +56,7 @@ div#display-month div.next{
 div#display-month div.today{
   background-color: #F6AA39;
 }
+
+div#display-month div.israli-holiday{
+  color: blue;
+}

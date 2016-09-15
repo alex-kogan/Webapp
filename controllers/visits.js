@@ -75,6 +75,7 @@ function display(req, res, next)
 		res.render('visit', { title: 'Visit page', 
 							  site_name: 'Kogans in CH',
 							  month: month,
+							  year: year,
 							  days: getCalanderDays(month,year)});
   	});
 };
