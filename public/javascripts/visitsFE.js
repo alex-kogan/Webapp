@@ -28,4 +28,8 @@ $(document).ready(function()
 		var selectedYear = $('#visit-year option:selected').text();
 		window.location = "/visit/"+selectedMonth+'-'+selectedYear;
 	});
+	$.getJSON( "http://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForMonth&month=1&year=2013&country=ger&region=Baden-W%C3%BCrttemberg", function( data )
+	{
+		alert(data);
+	});
 });
