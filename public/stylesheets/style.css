@@ -44,3 +44,15 @@ a .header-link{
     width: 100%;
     height: auto;
 }
+
+div#display-month div.prev{
+  color: #858A8C;
+}
+
+div#display-month div.next{
+  color: #858A8C;
+}
+
+div#display-month div.today{
+  background-color: #F6AA39;
+}

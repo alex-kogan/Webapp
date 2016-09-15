@@ -1,7 +1,3 @@
-var MongoDB = require('../MongoDB.js');
-var MongoDBInstance = new MongoDB; 
-var database = MongoDBInstance.connect('family');
-
 function index(req, res, next)
 {
   	res.render('index', {

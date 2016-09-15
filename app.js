@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 // Define controllers
 var indexControllers = require('./controllers/index');
 var familyControlles = require('./controllers/family');
+var visitsControlles = require('./controllers/visits');
 
 // setup section
 var app = express();
@@ -32,6 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', indexControllers.index);
 app.get('/family', familyControlles.family);
 app.get('/family/:name', familyControlles.familyMember);
+app.get('/visit/', visitsControlles.redirect);
+app.get('/visit/:month-:year', visitsControlles.display);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

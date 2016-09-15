@@ -1,0 +1,49 @@
+<% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
+<% var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+	   <% include templates/head.ejs%>
+	   <script src="/javascripts/visitsFE.js"></script>
+	</head>
+	<header>
+		<% include templates/header.ejs%>
+	</header>
+	<body>
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="visit-month">Month</label>
+				<select id='visit-month' class="form-control">
+					<% for (var i=0; i<months.length; i++) { %>
+				    	<option value=<%= i+1 %>><%= months[i] %></option>
+				    <% } %>
+				</select>
+				<label for="visit-year">Year</label>
+				<select id='visit-year' class="form-control">
+				</select>
+				<button type="button" class="btn btn-default" id="btn-view-month">View month</button>
+			</div>
+		</form>
+		<div id='center-pane'>
+			<h1 id="page-title"><%= title %></h1>
+			<div id='display-month'>
+				<div class="row">
+					<% for (var col=0; col<7; col++) { %>
+							<div class="col-md-1"> <%= dayNames[col] %> </div>
+  					<% } %>
+  				</div>
+				<% for (var row=0; row<6; row++) { %>
+					<div class="row">
+						<% for (var col=0; col<7; col++) { %>
+								<div class="<%= 'col-md-1' + ' ' + days[row*7+col].month %>" id="<%= days[row*7+col].date %>"> <%= days[row*7+col].day %> </div>
+	  					<% } %>
+	  				</div>
+			    <% } %>
+			</div>
+		</div>
+	</body>
+	<footer>
+		<% include templates/footer.ejs%>
+	</footer>
+</html>		
