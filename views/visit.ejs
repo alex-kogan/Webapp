@@ -30,13 +30,13 @@
 			<div class= "container-fluid" id='display-month'>
 				<div class="row">
 					<% for (var col=0; col<7; col++) { %>
-							<div class="col-md-1"> <%= dayNames[col] %> </div>
+							<div class="col-xs-1"> <%= dayNames[col] %> </div>
   					<% } %>
   				</div>
 				<% for (var row=0; row<6; row++) { %>
 					<div class="row">
 						<% for (var col=0; col<7; col++) { %>
-								<div class="<%= 'col-md-1' + ' ' + days[row*7+col].month %>" id="<%= days[row*7+col].date %>"> <%= days[row*7+col].day %> </div>
+								<div class="<%= 'col-xs-1' + ' ' + days[row*7+col].month %>" id="<%= days[row*7+col].date %>"> <%= days[row*7+col].day %> </div>
 	  					<% } %>
 	  				</div>
 			    <% } %>
