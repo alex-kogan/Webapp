@@ -16,8 +16,8 @@ var israelHolidays = function(data)
 $(document).ready(function()
 {
 	var date = $('div#display-month div.current').first().attr('id');
-	var month = date.split('-')[1];
-	var year = date.split('-')[2];
+	var month = parseInt(date.split('-')[1],10);
+	var year = parseInt(date.split('-')[2],10);
 	$("#visit-month option:nth-child("+month+")").attr('selected', true);
 	var today = new Date();
 	var todayString = today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear();
