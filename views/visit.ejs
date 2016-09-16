@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	   <% include templates/head.ejs%>
-	   <script src="/javascripts/visitsFE.js"></script>
+		<% include templates/head.ejs%>
+	   	<script src="/javascripts/visitsFE.js"></script>
 	</head>
 	<header>
 		<% include templates/header.ejs%>
@@ -27,16 +27,16 @@
 		</form>
 		<div id='center-pane'>
 			<h1 id="page-title"><%= title %></h1>
-			<div id='display-month'>
+			<div class= "container-fluid" id='display-month'>
 				<div class="row">
 					<% for (var col=0; col<7; col++) { %>
-							<div class="col-md-1"> <%= dayNames[col] %> </div>
+							<div class="col-xs-1"> <%= dayNames[col] %> </div>
   					<% } %>
   				</div>
 				<% for (var row=0; row<6; row++) { %>
 					<div class="row">
 						<% for (var col=0; col<7; col++) { %>
-								<div class="<%= 'col-md-1' + ' ' + days[row*7+col].month %>" id="<%= days[row*7+col].date %>"> <%= days[row*7+col].day %> </div>
+								<div class="<%= 'col-xs-1' + ' ' + days[row*7+col].month %>" id="<%= days[row*7+col].date %>"> <%= days[row*7+col].day %> </div>
 	  					<% } %>
 	  				</div>
 			    <% } %>
@@ -45,5 +45,8 @@
 	</body>
 	<footer>
 		<% include templates/footer.ejs%>
+		<script type="application/javascript"
+         	src="http://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForMonth&month=<%= month %>&year=<%= year %>&country=isr&jsonp=israelHolidays">
+ 		</script>
 	</footer>
 </html>		
