@@ -18,18 +18,18 @@ var getCalanderDays = function (month, year)
 	var today = new Date();
 	var monthStart = (new Date(year,month-1,1)).getDay();
 	var prevMonth = month-1;
+	var nextMonth = month+1;
 	var prevYear = year;
 	var nextYear = year;
 	if (prevMonth==0)
 	{
 		prevMonth = 12
-		prevYear = prevYear-1;
+		prevYear = year-1;
 	}
-	var nextMonth = month+1;
 	if (nextMonth==13)
 	{
 		nextMonth = 1
-		nextYear = nextYear+1;
+		nextYear = year+1;
 	}
 	var days = [];
 	for (var i=0; i<monthStart; i++)
@@ -70,6 +70,14 @@ function display(req, res, next)
 {
 	var month = req.params.month;
 	var year = req.params.year;
+	month = parseInt(month, 10);
+	year = parseInt(year, 10);
+	if (isNaN(month) || isNaN(year)) 
+	{
+		month = (new Date()).getMonth()+1;
+		year = (new Date()).getFullYear();
+		res.redirect('/visit/'+month+'-'+year);
+	}
 	MongoDBInstance.find({}, function(documents)
   	{
 		res.render('visit', { title: 'Visit page', 
@@ -84,7 +92,7 @@ function redirect(req, res, next)
 {
 	var month = (new Date()).getMonth()+1;
 	var year = (new Date()).getFullYear();
-	res.redirect('/visit/9-2016');
+	res.redirect('/visit/'+month+'-'+year);
 };
 
 module.exports = {
